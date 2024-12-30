@@ -251,7 +251,7 @@ $conn->close();
 
                                 <div class="col-md-6 mb-3">
                                     <div class="info-box">
-                                        <span class="info-box-icon bg-info"><i class="fas fa-cogs"></i></span>
+                                    <span class="info-box-icon bg-success"><i class="fas fa-box-open"></i></span>
                                         <div class="info-box-content">
                                             <span class="info-box-text">Part Name</span>
                                             <span class="info-box-number"><?php echo htmlspecialchars($productName); ?></span>
@@ -261,7 +261,7 @@ $conn->close();
 
                                 <div class="col-md-6 mb-3">
                                     <div class="info-box">
-                                        <span class="info-box-icon bg-info"><i class="fas fa-cogs"></i></span>
+                                    <span class="info-box-icon bg-warning"><i class="fas fa-user-tie"></i></span>
                                         <div class="info-box-content">
                                             <span class="info-box-text">Customer</span>
                                             <span class="info-box-number"><?php echo htmlspecialchars($customerID); ?></span>
