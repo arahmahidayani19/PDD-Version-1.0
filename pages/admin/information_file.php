@@ -134,37 +134,32 @@
                 <div class="modal-body">
                     <!-- Part Number -->
                     <div class="form-group mb-3">
-    <label for="partNumber" class="form-label">Part Number</label>
-    <select id="partNumber" name="part_number[]" class="select2" style="width: 100%;">
-        <option value="" disabled selected>Select a part number</option>
-        <?php
-        $sqlpart_number = "SELECT productID FROM products";
-        $resultpart_number = $conn->query($sqlpart_number);
-        if ($resultpart_number->num_rows > 0) {
-            while ($rowpart_number = $resultpart_number->fetch_assoc()) {
-                echo '<option value="' . htmlspecialchars($rowpart_number['productID']) . '">' . htmlspecialchars($rowpart_number['productID']) . '</option>';
-            }
-        } else {
-            echo '<option>No Part Number data found.</option>';
-        }
-        ?>
-    </select>
-</div>
-
-
+                        <label for="partNumber" class="form-label">Part Number</label>
+                        <select id="partNumber" name="part_number[]" class="select2" style="width: 100%;" required>
+                            <option value="" disabled selected>Select a part number</option>
+                            <?php
+                            $sqlpart_number = "SELECT productID FROM products";
+                            $resultpart_number = $conn->query($sqlpart_number);
+                            if ($resultpart_number->num_rows > 0) {
+                                while ($rowpart_number = $resultpart_number->fetch_assoc()) {
+                                    echo '<option value="' . htmlspecialchars($rowpart_number['productID']) . '">' . htmlspecialchars($rowpart_number['productID']) . '</option>';
+                                }
+                            } else {
+                                echo '<option>No Part Number data found.</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
 
                     <!-- Work Instruction -->
                     <div class="form-group mb-3">
                         <label for="work_instruction">Work Instruction</label>
                         <div class="row">
                             <div class="col">
-                                <input type="text" id="work_instruction_path" name="work_instruction_path" class="form-control" placeholder="Input path here">
+                                <input type="text" id="work_instruction_path" name="work_instruction_path" class="form-control" placeholder="Input path here" onchange="checkInput('work_instruction_path', 'work_instruction_file')">
                             </div>
                             <div class="col">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="work_instruction_file" name="work_instruction_file" accept=".pdf, .xlsx" onchange="checkInput('work_instruction_path', 'work_instruction_file')">
-                                    <label class="custom-file-label" for="work_instruction_file">Choose file</label>
-                                </div>
+                                <input type="file" id="work_instruction_file" name="work_instruction_file" class="form-control" accept=".pdf, .xlsx" onchange="checkInput('work_instruction_path', 'work_instruction_file')">
                             </div>
                         </div>
                         <small class="form-text text-muted">Choose to input a path or upload a file (PDF or XLSX only)</small>
@@ -175,13 +170,10 @@
                         <label for="master_parameter">Master Parameter</label>
                         <div class="row">
                             <div class="col">
-                                <input type="text" id="master_parameter_path" name="master_parameter_path" class="form-control" placeholder="Input path here">
+                                <input type="text" id="master_parameter_path" name="master_parameter_path" class="form-control" placeholder="Input path here" onchange="checkInput('master_parameter_path', 'master_parameter_file')">
                             </div>
                             <div class="col">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="master_parameter_file" name="master_parameter_file" accept=".pdf, .xlsx" onchange="checkInput('master_parameter_path', 'master_parameter_file')">
-                                    <label class="custom-file-label" for="master_parameter_file">Choose file</label>
-                                </div>
+                                <input type="file" id="master_parameter_file" name="master_parameter_file" class="form-control" accept=".pdf, .xlsx" onchange="checkInput('master_parameter_path', 'master_parameter_file')">
                             </div>
                         </div>
                         <small class="form-text text-muted">Choose to input a path or upload a file (PDF or XLSX only)</small>
@@ -192,19 +184,14 @@
                         <label for="packaging">Packaging</label>
                         <div class="row">
                             <div class="col">
-                                <input type="text" id="packaging_path" name="packaging_path" class="form-control" placeholder="Input path here">
+                                <input type="text" id="packaging_path" name="packaging_path" class="form-control" placeholder="Input path here" onchange="checkInput('packaging_path', 'packaging_file')">
                             </div>
                             <div class="col">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="packaging_file" name="packaging_file" accept=".pdf, .xlsx" onchange="checkInput('packaging_path', 'packaging_file')">
-                                    <label class="custom-file-label" for="packaging_file">Choose file</label>
-                                </div>
+                                <input type="file" id="packaging_file" name="packaging_file" class="form-control" accept=".pdf, .xlsx" onchange="checkInput('packaging_path', 'packaging_file')">
                             </div>
                         </div>
                         <small class="form-text text-muted">Choose to input a path or upload a file (PDF or XLSX only)</small>
                     </div>
-
-                  
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -348,28 +335,7 @@ $(document).ready(function() {
     // Delete button click handler with confirmation
     handleDeleteButtonClick();
 
-    // Restrict file uploads to PDF or XLSX
-    restrictFileUpload();
-});
 
-// Restrict file uploads to valid types
-function restrictFileUpload() {
-    $('input[type="file"]').on('change', function () {
-        const file = this.files[0];
-        const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
-
-        if (file && validTypes.indexOf(file.type) === -1) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid File Type',
-                text: 'Please upload a PDF or XLSX file only.',
-                timer: 2000,
-                showConfirmButton: false,
-            });
-            this.value = ''; // Clear input if file is invalid
-        }
-    });
-}
 
 // Initialize DataTable
 function initializeDataTable() {
@@ -444,36 +410,64 @@ function handleEditPartNumberModalSubmit() {
         });
     });
 }
-
 // Handle "Add Part Number" form submission
 function handleAddPNFormSubmit() {
-    $('#addPartNumberForm').on('submit', function (e) {
+    document.getElementById('addPartNumberForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        $.ajax({
-            url: 'add_part_number.php',
-            type: 'POST',
-            data: $(this).serialize(),
-            dataType: 'json',
-            success: function (response) {
-                if (response.status === 'success') {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: response.message,
-                        timer: 1500,
-                        showConfirmButton: false,
-                    }).then(() => {
-                        location.reload();
-                    });
-                } else {
-                    showErrorMessage(response.message);
-                }
-            },
-            error: function () {
-                showErrorMessage('An error occurred while adding the part number.');
-            },
+
+        let formData = new FormData(this);
+
+        fetch('add_part_number.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: data.message,
+                }).then(() => {
+                    $('#inlineForm').modal('hide');
+                    // Refresh halaman atau tabel jika perlu
+                    location.reload();
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error: ' + data.message,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'An error occurred while processing your request.',
+            });
         });
     });
+}
+
+// Fungsi untuk mengecek input
+function checkInput(pathId, fileId) {
+    const pathInput = document.getElementById(pathId);
+    const fileInput = document.getElementById(fileId);
+
+    if (pathInput.value) {
+        fileInput.disabled = true;
+    } else {
+        fileInput.disabled = false;
+    }
+
+    if (fileInput.files.length > 0) {
+        pathInput.disabled = true;
+    } else {
+        pathInput.disabled = false;
+    }
 }
 
 // Handle Delete button click with SweetAlert confirmation
@@ -530,6 +524,7 @@ function showErrorMessage(message) {
     });
 }
 
+});
 </script>
     
 
