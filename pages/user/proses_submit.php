@@ -1,0 +1,1 @@
+<?php include('../machine/proses_submit.php'); ?>

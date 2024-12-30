@@ -1,0 +1,33 @@
+/* Atur tinggi navbar agar semua elemen menyesuaikan */
+.main-header.navbar {
+    display: flex;
+    align-items: center;
+    min-height: 56px; /* Sesuaikan tinggi navbar */
+  }
+  
+  /* Pastikan ikon, teks, dan gambar profil sejajar */
+  .navbar-nav .nav-link {
+    display: flex;
+    align-items: center; /* Sejajarkan semua elemen di tengah secara vertikal */
+    height: 100%; /* Sesuaikan tinggi elemen dengan navbar */
+    padding: 0; /* Hilangkan padding default */
+  }
+  
+  /* Gambar profil di navbar */
+  .navbar-nav .nav-item img {
+    vertical-align: middle;
+    border-radius: 50%; /* Pastikan gambar tetap bulat */
+    margin-right: 8px; /* Jarak dengan teks */
+  }
+  
+  /* Untuk menghindari padding bawaan AdminLTE */
+  .navbar-nav .dropdown-menu {
+    margin-top: 0;
+  }
+  
+  /* Hilangkan padding atas/bawah dari teks Dashboard */
+  .navbar-nav .nav-item a.nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  

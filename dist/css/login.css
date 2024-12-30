@@ -1,0 +1,254 @@
+/* styles.css */
+
+/* assets/css/login.css */
+
+body {
+    background-color: #e9ecef;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.registration-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    border-top: 4px solid #007bff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registration-form p {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+    font-family: 'Roboto', sans-serif;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #495057;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: #4A90E2;
+    background-color: #fff;
+    outline: none;
+}
+
+.registration-form input[type="submit"] {
+    background-color: #4A90E2;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registration-form input[type="submit"]:hover {
+    background-color: #357ABD;
+}
+
+.registration-form .mt-3 {
+    margin-top: 15px;
+}
+
+.registration-form a {
+    color: #4A90E2;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.registration-form a:hover {
+    color: #357ABD;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-container img {
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
+}
+
+body {
+    background: linear-gradient(135deg, #f3f3f3, #e2e2e2);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    border-top: 5px solid #007bff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+form {
+    width: 100%;
+}
+
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: #007bff;
+    background-color: #ffffff;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.toggle-password {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.toggle-password input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #0056b3;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px; /* Reduced space between the logo and text */
+}
+
+.icon-container img {
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+.error-message {
+    color: #d9534f; /* Warna merah terang */
+    background-color: #f9d6d5; /* Warna latar belakang merah muda */
+    border: 1px solid #d9534f; /* Border merah terang */
+    padding: 10px; /* Ruang di sekitar teks */
+    border-radius: 5px; /* Sudut border yang melengkung */
+    margin-top: 10px; /* Jarak antara pesan error dan elemen di atasnya */
+}
