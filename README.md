@@ -1,5 +1,7 @@
 "# PDD-Version-1.0" 
 
+## [Version 1.0] - 2024-12-30
+
 1. Adding customer data, part name, and other relevant information to the machine display on the dashboard.
 2. Displaying documents related to the machine on the dashboard.
 3. Creating a dedicated page for displaying machine documents.
